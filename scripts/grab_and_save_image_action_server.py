@@ -101,7 +101,7 @@ class GrabAndSaveImageActionServers():
             filename = grab_and_save_img_goal.img_storage_path_and_name
             try:
                 cv_img = CvBridge().imgmsg_to_cv2(grab_imgs_result.images[0],
-                                                  desired_encoding='passthrough')
+                                                  "bgr8")
             except CvBridgeError as exception:
                 rospy.logerr('Error converting img_msg_to_cv_img: ' +
                              str(exception))

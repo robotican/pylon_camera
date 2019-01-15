@@ -2,7 +2,7 @@
 <launch>
     <arg name="respawn" default="false" />
     <arg name="node_name" default="pylon_camera_grab_and_save_as" />
-    <arg name="camera_name" default="/pylon_camera_node" />
+    <arg name="camera_name" default="pylon_top_cam" />
 
     <node name="$(arg node_name)" pkg="pylon_camera"
           type="grab_and_save_image_action_server.py" output="screen"

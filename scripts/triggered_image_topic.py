@@ -15,7 +15,7 @@ class TriggeredImageTopic():
     """
 
     def __init__(self):
-        self.camera_name = rospy.get_param('~camera_name', '')
+        self.camera_name = rospy.get_param('~camera_name', 'pylon_top_cam')
         self.output_topic_name = rospy.get_param('~triggered_image_topic', 'triggered_images')
         if not self.camera_name:
             rospy.logwarn("No camera name given! Assuming 'pylon_camera_node' as"
@@ -27,7 +27,7 @@ class TriggeredImageTopic():
         self._grab_imgs_rect_ac = SimpleActionClient('{}/grab_images_rect'.format(self.camera_name),
                                                      GrabImagesAction)
 
-        if self._grab_imgs_rect_ac.wait_for_server(rospy.Duration(10.0)):
+        if self._grab_imgs_rect_ac.wait_for_server(rospy.Duration(3.0)):
             rospy.loginfo('Found action server at '
                           '{}/grab_images_raw'.format(self.camera_name))
         else:

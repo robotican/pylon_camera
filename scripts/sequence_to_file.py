@@ -49,5 +49,5 @@ def get_images(goal_folder):
 if __name__ == "__main__":
     rospy.init_node("image_sequence_to_file")
 
-    get_images("/tmp")
+    get_images("/home/sub/tmp")
     exit(0)
